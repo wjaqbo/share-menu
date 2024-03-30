@@ -16,7 +16,7 @@ export default function HomePage() {
             </h1>
             <p className="text-lg">Taste & share food with your friends</p>
           </div>
-          <div className="flex gap-20 items-center mt-10">
+          <div className="flex gap-12 items-center mt-10">
             <Link href="/community" className="text-orange-600 text-lg">
               Join the Community
             </Link>
@@ -43,7 +43,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="flex leading-relaxed flex-col text-lg my-14 mx-auto ">
+      <section className="flex gap-4 leading-relaxed flex-col text-lg my-14 mx-auto font-light text-center">
         <h2 className="font-semibold text-3xl my-8 text-center">
           Why NextLevel Food?
         </h2>

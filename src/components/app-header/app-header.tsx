@@ -3,10 +3,11 @@ import Image from "next/image";
 
 import logoImg from "@/assets/logo.png";
 import AppHeaderBackground from "./app-header-background";
+import NavLink from "./nav-link";
 
 export default function AppHeader() {
   return (
-    <header className="bg-slate-800 relative">
+    <header className="bg-slate-800 sticky top-0 z-20">
       <div className="max-w-screen-lg mx-auto flex justify-between items-center p-4">
         <Link
           href="/"
@@ -23,14 +24,10 @@ export default function AppHeader() {
         <nav>
           <ul className="flex gap-8 font-bold tracking-wider  text-lg">
             <li>
-              <Link href="/meals" className="hover:text-amber-400">
-                Browse Meals
-              </Link>
+              <NavLink href="/meals">Explore Meals</NavLink>
             </li>
             <li>
-              <Link href="/community" className="hover:text-amber-400">
-                Foodies Community
-              </Link>
+              <NavLink href="/community">Foodies Community</NavLink>
             </li>
           </ul>
         </nav>
