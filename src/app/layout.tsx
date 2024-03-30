@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={montserrat.className}>
         <AppHeader />
-        <main className="p-4 mx-auto max-w-screen-lg">{children}</main>
+        <main className="mx-auto max-w-screen-lg p-4">{children}</main>
       </body>
     </html>
   );

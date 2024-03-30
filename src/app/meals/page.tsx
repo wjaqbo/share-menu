@@ -18,7 +18,7 @@ export default function MealsPage() {
   return (
     <>
       <header className="my-20">
-        <h1 className="text-5xl font-bold mb-8">
+        <h1 className="mb-8 text-5xl font-bold">
           Delicious meals, created{" "}
           <span className="bg-gradient-to-tr from-amber-400 to-orange-600 bg-clip-text text-transparent">
             by you
@@ -29,7 +29,7 @@ export default function MealsPage() {
         </p>
         <div className="mt-8">
           <Link
-            className="bg-orange-600 border-orange-500 text-lg text-white font-bold px-4 py-2 rounded-md"
+            className="rounded-md border-orange-500 bg-orange-600 px-4 py-2 text-lg font-bold text-white"
             href="/meals/share"
           >
             Share your favorite recipe

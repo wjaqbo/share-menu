@@ -1,6 +1,6 @@
 export default function AppHeaderBackground() {
   return (
-    <div className="absolute top-full -z-10 left-0 w-full">
+    <div className="absolute left-0 top-full -z-10 w-full">
       <svg
         className="h-14 w-full"
         data-name="Layer 1"

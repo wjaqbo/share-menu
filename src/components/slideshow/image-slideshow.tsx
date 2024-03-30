@@ -30,14 +30,14 @@ export default function ImageSlideshow() {
     return () => clearInterval(interval);
   });
   return (
-    <div className="relative w-full h-full rounded-lg overflow-hidden shadow-md">
+    <div className="relative h-full w-full overflow-hidden rounded-lg shadow-md">
       {images.map((image, index) => (
         <Image
           className={`${
             index === currentImageIndex
-              ? "z-10 opacity-100 transform scale-100 translate-x-0 rotate-0"
-              : "opacity-0 transform translate-x-4 rotate-6"
-          }  w-full h-full object-cover absolute top-0 left-0 transition-all ease-in-out duration-[3000ms]`}
+              ? "z-10 translate-x-0 rotate-0 scale-100 transform opacity-100"
+              : "translate-x-4 rotate-6 transform opacity-0"
+          }  absolute left-0 top-0 h-full w-full object-cover transition-all duration-[3000ms] ease-in-out`}
           key={index}
           src={image.image}
           alt={image.alt}

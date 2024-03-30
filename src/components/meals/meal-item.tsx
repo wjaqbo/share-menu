@@ -5,27 +5,27 @@ import Link from "next/link";
 
 export default function MealItem({ title, slug, image, summary, creator }) {
   return (
-    <article className="flex flex-col justify-between h-full rounded shadow-md overflow-hidden transition bg-slate-800">
+    <article className="flex h-full flex-col justify-between overflow-hidden rounded bg-slate-800 shadow-md transition">
       <header>
-        <div className="relative w-full h-56">
+        <div className="relative h-56 w-full">
           <Image
             src={image}
             alt={title}
             fill
-            className="object-cover animate-fadeIn"
+            className="animate-fadeIn object-cover"
           />
         </div>
         <div className="p-4 ">
-          <h2 className="font-bold text-lg">{title}</h2>
+          <h2 className="text-lg font-bold">{title}</h2>
           <p className="text-sm">by {creator}</p>
         </div>
       </header>
-      <div className="text-sm text-white flex flex-col justify-between h-full">
+      <div className="flex h-full flex-col justify-between text-sm text-white">
         <p className="p-4">{summary}</p>
-        <div className="text-right p-4">
+        <div className="p-4 text-right">
           <Link
             href={`/meals/${slug}`}
-            className="inline-block bg-orange-600 border-orange-500 text-md text-white font-bold px-4 py-2 rounded-md"
+            className="text-md inline-block rounded-md border-orange-500 bg-orange-600 px-4 py-2 font-bold text-white"
           >
             View Recipe
           </Link>

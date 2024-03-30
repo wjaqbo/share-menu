@@ -7,22 +7,22 @@ import NavLink from "./nav-link";
 
 export default function AppHeader() {
   return (
-    <header className="bg-slate-800 sticky top-0 z-20">
-      <div className="max-w-screen-lg mx-auto flex justify-between items-center p-4">
+    <header className="sticky top-0 z-20 bg-slate-800">
+      <div className="mx-auto flex max-w-screen-lg items-center justify-between p-4">
         <Link
           href="/"
-          className="flex text-xl items-center gap-3 uppercase font-bold tracking-wider"
+          className="flex items-center gap-3 text-xl font-bold uppercase tracking-wider"
         >
           <Image
             src={logoImg}
             alt="Aplate with food on it"
-            className="w-16 h-16"
+            className="h-16 w-16"
             priority
           />
           NextLevel Food
         </Link>
         <nav>
-          <ul className="flex gap-8 font-bold tracking-wider  text-lg">
+          <ul className="flex gap-8 text-lg font-bold  tracking-wider">
             <li>
               <NavLink href="/meals">Explore Meals</NavLink>
             </li>

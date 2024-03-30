@@ -5,24 +5,24 @@ export default function HomePage() {
   console.log("Executing... page.tsx");
   return (
     <>
-      <header className="md:flex gap-12 my-20 mx-auto items-center">
-        <div className="md:w-[40rem] h-[25rem]">
+      <header className="mx-auto my-20 items-center gap-12 md:flex">
+        <div className="h-[25rem] md:w-[40rem]">
           <ImageSlideshow />
         </div>
-        <div className="max-w-[31rem] ml-auto">
+        <div className="ml-auto max-w-[31rem]">
           <div className="flex flex-col gap-8">
-            <h1 className="tracking-wider text-5xl uppercase font-bold bg-clip-text bg-gradient-to-t from-amber-400 to-orange-600 text-transparent">
+            <h1 className="bg-gradient-to-t from-amber-400 to-orange-600 bg-clip-text text-5xl font-bold uppercase tracking-wider text-transparent">
               NextLevel Food for Foodies
             </h1>
             <p className="text-lg">Taste & share food with your friends</p>
           </div>
-          <div className="flex gap-12 items-center mt-10">
-            <Link href="/community" className="text-orange-600 text-lg">
+          <div className="mt-10 flex items-center gap-12">
+            <Link href="/community" className="text-lg text-orange-600">
               Join the Community
             </Link>
             <Link
               href="/meals"
-              className="bg-orange-600 border-orange-500 text-lg text-white font-bold px-4 py-2 rounded-md"
+              className="rounded-md border-orange-500 bg-orange-600 px-4 py-2 text-lg font-bold text-white"
             >
               Explore Meals
             </Link>
@@ -30,8 +30,8 @@ export default function HomePage() {
         </div>
       </header>
 
-      <section className="flex font-light flex-col text-2xl my-8 mx-auto text-center">
-        <h2 className="font-semibold text-3xl my-8">How it works</h2>
+      <section className="mx-auto my-8 flex flex-col text-center text-2xl font-light">
+        <h2 className="my-8 text-3xl font-semibold">How it works</h2>
         <p className="">
           NextLevel Food is a platform for foodies to share their favorite
           recipes with the world. It&apos;s a place to discover new dishes, and
@@ -43,8 +43,8 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="flex gap-4 leading-relaxed flex-col text-lg my-14 mx-auto font-light text-center">
-        <h2 className="font-semibold text-3xl my-8 text-center">
+      <section className="mx-auto my-14 flex flex-col gap-4 text-center text-lg font-light leading-relaxed">
+        <h2 className="my-8 text-center text-3xl font-semibold">
           Why NextLevel Food?
         </h2>
         <p>

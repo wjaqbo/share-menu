@@ -24,26 +24,26 @@ export default async function MealDetailsPage({
 
   return (
     <>
-      <header className="md:flex gap-12 my-20 mx-auto">
-        <div className="relative w-[30rem] h-[20rem]">
+      <header className="mx-auto my-20 gap-12 md:flex">
+        <div className="relative h-[20rem] w-[30rem]">
           <Image
-            className="object-cover animate-slideRight"
+            className="animate-slideRight object-cover"
             fill
             src={image}
             alt={title}
           />
         </div>
-        <div className="flex flex-col animate-slideLeft">
+        <div className="flex animate-slideLeft flex-col">
           <h1 className="text-5xl font-bold">{title}</h1>
           <p className="mt-5 italic">
             by <a href={`mailto:${creator_email}`}>{creator}</a>
           </p>
-          <p className="mt-5 text-white text-lg font-light">{summary}</p>
+          <p className="mt-5 text-lg font-light text-white">{summary}</p>
         </div>
       </header>
-      <section className="p-4 my-14 bg-slate-800 rounded animate-slideUp">
+      <section className="my-14 animate-slideUp rounded bg-slate-800 p-4">
         <p
-          className="text-white text-lg font-light"
+          className="text-lg font-light text-white"
           dangerouslySetInnerHTML={{ __html: formattedInstructions }}
         ></p>
       </section>
