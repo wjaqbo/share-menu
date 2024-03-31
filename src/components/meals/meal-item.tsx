@@ -3,7 +3,19 @@ import React from "react";
 
 import Link from "next/link";
 
-export default function MealItem({ title, slug, image, summary, creator }) {
+export default function MealItem({
+  title,
+  slug,
+  image,
+  summary,
+  creator,
+}: {
+  title: string;
+  slug: string;
+  image: string;
+  summary: string;
+  creator: string;
+}) {
   return (
     <article className="flex h-full flex-col justify-between overflow-hidden rounded bg-slate-800 shadow-md transition">
       <header>

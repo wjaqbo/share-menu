@@ -18,12 +18,12 @@ export async function getMeal(slug: string) {
   return db.prepare("SELECT * FROM meals WHERE slug = ?").get(slug) as Meal;
 }
 
-export async function createMeal(meal) {
-  meal.slug = slugify(xss(meal.title), { lower: true });
+export async function createMeal(meal: MealCreateType) {
+  const slug = slugify(xss(meal.title), { lower: true });
   meal.instructions = xss(meal.instructions);
 
   const extension = meal.image.name.split(".").pop();
-  const fileName = `${meal.slug}.${extension}`;
+  const fileName = `${slug}.${extension}`;
 
   const stream = fs.createWriteStream(`public/images/${fileName}`);
   const bufferedImage = await meal.image.arrayBuffer();

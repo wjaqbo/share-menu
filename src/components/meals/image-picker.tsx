@@ -3,14 +3,26 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 
-export default function ImagePicker({ label, name }) {
-  const [pickedImage, setPickedImage] = useState(null);
-  const imageInputRef = useRef<HTMLInputElement>();
+export default function ImagePicker({
+  label,
+  name,
+}: {
+  label: string;
+  name: string;
+}) {
+  const [pickedImage, setPickedImage] = useState<string | null>(null);
+  const imageInputRef = useRef<HTMLInputElement | null>(null);
 
   function handlePickImage() {
+    if (!imageInputRef.current) {
+      return;
+    }
     imageInputRef.current.click();
   }
-  function handleImageChange(e) {
+  function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
+    if (!e.target.files) {
+      return;
+    }
     const file = e.target.files[0];
 
     if (!file) {
@@ -19,7 +31,7 @@ export default function ImagePicker({ label, name }) {
     }
     const fileReader = new FileReader();
     fileReader.onload = () => {
-      setPickedImage(fileReader.result);
+      setPickedImage(fileReader.result as string);
     };
     fileReader.readAsDataURL(file);
   }
