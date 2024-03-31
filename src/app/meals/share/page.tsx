@@ -1,10 +1,18 @@
-import ImagePicker from "@/components/meals/image-picker";
+"use client";
 
-export const metadata = {
-  title: "Share",
-  description: "Share Page",
-};
+import { useFormState } from "react-dom";
+
+import { shareMeal } from "@/lib/actions";
+import ImagePicker from "@/components/meals/image-picker";
+import MealsFormSubmit from "@/components/meals/meals-form-submit";
+
+// export const metadata = {
+//   title: "Share",
+//   description: "Share Page",
+// };
 export default function ShareMealPage() {
+  const [state, formAction] = useFormState(shareMeal, { message: null });
+
   return (
     <>
       <header className="my-20 space-y-8">
@@ -19,7 +27,7 @@ export default function ShareMealPage() {
         </p>
       </header>
       <section className="my-8 text-lg">
-        <form className="flex max-w-[40rem] flex-col gap-8">
+        <form action={formAction} className="flex max-w-[40rem] flex-col gap-8">
           <div className="flex gap-4">
             <p className="flex w-full flex-col gap-2">
               <label htmlFor="name">Name</label>
@@ -78,14 +86,10 @@ export default function ShareMealPage() {
               className="rounded-md border border-slate-800 bg-slate-900 px-4 py-2 font-medium"
             />
           </p>
-          <ImagePicker label="Image" name="image" />
+          <ImagePicker label="Your image" name="image" />
+          {state.message && <p>{state.message}</p>}
           <p className="text-right">
-            <button
-              type="submit"
-              className="rounded-md bg-orange-600 px-4 py-2 font-bold text-white"
-            >
-              Share meal
-            </button>
+            <MealsFormSubmit />
           </p>
         </form>
       </section>

@@ -12,8 +12,8 @@ export default function LoadingMeal() {
         cy="400"
         fill="none"
         r="200"
-        stroke-width="50"
-        stroke-dasharray="725 1400"
+        strokeWidth="50"
+        strokeDasharray="725 1400"
       />
     </svg>
   );
