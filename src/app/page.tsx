@@ -2,7 +2,6 @@ import ImageSlideshow from "@/components/slideshow/image-slideshow";
 import Link from "next/link";
 
 export default function HomePage() {
-  console.log("Executing... page.tsx");
   return (
     <>
       <header className="mx-auto my-20 items-center gap-12 md:flex">

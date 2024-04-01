@@ -15,7 +15,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log("Executing... layout.tsx");
   return (
     <html lang="en">
       <body className={montserrat.className}>
