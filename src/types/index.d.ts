@@ -2,11 +2,11 @@ type Meal = {
   id: number;
   slug: string;
   title: string;
-  image: File;
+  image: string;
   summary: string;
   instructions: string;
   creator: string;
   creator_email: string;
 };
 
-type MealCreateType = Omit<Meal, "id" | "slug">;
+type MealCreateType = Omit<Meal, "id" | "slug"> & { imageFile: File };

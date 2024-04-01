@@ -17,7 +17,8 @@ export async function shareMeal(
     title: formData.get("title") as string,
     summary: formData.get("summary") as string,
     instructions: formData.get("instructions") as string,
-    image: formData.get("image") as File,
+    // image: formData.get("image") as string,
+    imageFile: formData.get("image") as File,
     creator: formData.get("name") as string,
     creator_email: formData.get("email") as string,
   };
@@ -29,14 +30,14 @@ export async function shareMeal(
     isValidText(meal.creator) ||
     isValidText(meal.creator_email) ||
     !meal.creator_email.includes("@") ||
-    !meal.image ||
-    meal.image.size === 0
+    !meal.imageFile ||
+    meal.imageFile.size === 0
   ) {
     return {
       message: "Invalid input",
     };
   }
-  await createMeal(meal);
+  await createMeal(meal as MealCreateType);
   revalidatePath("/meals");
   redirect("/meals");
 }
