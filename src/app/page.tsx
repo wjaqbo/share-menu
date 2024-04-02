@@ -72,7 +72,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* <HomeAccordion /> */}
+      <section className="my-24">
+        <h2 className="my-8 text-center text-3xl font-semibold">FAQ</h2>
+        <HomeAccordion />
+      </section>
     </>
   );
 }

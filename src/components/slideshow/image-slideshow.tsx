@@ -37,7 +37,7 @@ export default function ImageSlideshow() {
             index === currentImageIndex
               ? "z-10 translate-x-0 rotate-0 scale-100 transform opacity-100"
               : "translate-x-4 rotate-6 transform opacity-0"
-          }  absolute left-0 top-0 h-full w-full object-cover transition-all duration-[3000ms] ease-in-out`}
+          } duration-3000 absolute left-0 top-0 h-full w-full object-cover transition ease-in-out`}
           key={index}
           src={image.image}
           alt={image.alt}
