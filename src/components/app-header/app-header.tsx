@@ -8,7 +8,7 @@ import NavLink from "./nav-link";
 export default function AppHeader() {
   return (
     <header className="sticky top-0 z-20 bg-slate-800">
-      <div className="mx-auto flex max-w-screen-lg items-center justify-between p-4">
+      <div className="mx-auto flex max-w-screen-lg items-center justify-between px-4">
         <Link
           href="/"
           className="flex items-center gap-3 text-xl font-bold uppercase tracking-wider"

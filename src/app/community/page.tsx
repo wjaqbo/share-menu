@@ -28,17 +28,26 @@ export default function CommunityPage() {
 
         <ul className="flex gap-12 text-center text-lg font-light">
           <li>
-            <Image src={mealIcon} alt="A delicious meal" />
+            <Image
+              src={mealIcon}
+              alt="A delicious meal"
+              className="animate-fadeIn"
+            />
             <p>Share & discover recipes</p>
           </li>
           <li>
-            <Image src={communityIcon} alt="A crowd of people, cooking" />
+            <Image
+              src={communityIcon}
+              alt="A crowd of people, cooking"
+              className="animate-fadeIn"
+            />
             <p>Find new friends & like-minded people</p>
           </li>
           <li>
             <Image
               src={eventsIcon}
               alt="A crowd of people at a cooking event"
+              className="animate-fadeIn"
             />
             <p>Participate in exclusive events</p>
           </li>

@@ -17,14 +17,14 @@ export default function MealItem({
   creator: string;
 }) {
   return (
-    <article className="flex h-full flex-col justify-between overflow-hidden rounded bg-slate-800 shadow-md transition">
+    <article className="flex h-full flex-col justify-between overflow-hidden rounded border border-slate-800 bg-slate-900 shadow-md transition">
       <header>
         <div className="relative h-56 w-full">
           <Image
             src={image}
             alt={title}
             fill
-            className="animate-fadeIn object-cover"
+            className="absolute left-0 top-0 h-full w-full animate-fadeIn object-cover"
           />
         </div>
         <div className="p-4 ">

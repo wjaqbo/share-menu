@@ -1,3 +1,4 @@
+import HomeAccordion from "@/components/home/home-accordion";
 import ImageSlideshow from "@/components/slideshow/image-slideshow";
 import Link from "next/link";
 
@@ -42,29 +43,36 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="mx-auto my-14 flex flex-col gap-4 text-center text-lg font-light leading-relaxed">
+      <section className="mx-auto my-24 flex flex-col gap-4 rounded-3xl border border-slate-800 bg-slate-900 px-8 pb-16 text-lg font-light  leading-relaxed text-white">
         <h2 className="my-8 text-center text-3xl font-semibold">
           Why NextLevel Food?
         </h2>
-        <p>
-          NextLevel Food is a platform for foodies to share their favorite
-          recipes with the world. It&apos;s a place to discover new dishes, and
-          to connect with other food lovers.
-        </p>
-        <p>
-          NextLevel Food is a place to discover new dishes, and to connect with
-          other food lovers.
-        </p>
-        <p>
-          NextLevel Food is a platform for foodies to share their favorite
-          recipes with the world. It&apos;s a place to discover new dishes, and
-          to connect with other food lovers.
-        </p>
-        <p>
-          NextLevel Food is a place to discover new dishes, and to connect with
-          other food lovers.
-        </p>
+        <div className="flex gap-16">
+          <div>
+            <p>
+              NextLevel Food is a platform for foodies to share their favorite
+              recipes with the world. It&apos;s a place to discover new dishes,
+              and to connect with other food lovers.
+            </p>
+            <p>
+              NextLevel Food is a place to discover new dishes, and to connect
+              with other food lovers.
+            </p>
+          </div>
+          <div>
+            <p>
+              NextLevel Food is a platform for foodies to share their favorite
+              recipes with the world. It&apos;s a place to discover new dishes,
+              and to connect with other food lovers.
+            </p>
+            <p>
+              NextLevel Food is a place to discover new dishes, and to connect
+              with other food lovers.
+            </p>
+          </div>
+        </div>
       </section>
+      {/* <HomeAccordion /> */}
     </>
   );
 }
