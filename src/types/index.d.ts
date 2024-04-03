@@ -1,5 +1,5 @@
 type Meal = {
-  id: number;
+  _id: string;
   slug: string;
   title: string;
   image: string;
@@ -9,4 +9,4 @@ type Meal = {
   creator_email: string;
 };
 
-type MealCreateType = Omit<Meal, "id" | "slug"> & { imageFile: File };
+type MealCreateType = Omit<Meal, "_id" | "slug"> & { imageFile: File };

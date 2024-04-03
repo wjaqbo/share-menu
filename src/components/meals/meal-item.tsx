@@ -4,14 +4,14 @@ import React from "react";
 import Link from "next/link";
 
 export default function MealItem({
-  title,
   slug,
+  title,
   image,
   summary,
   creator,
 }: {
-  title: string;
   slug: string;
+  title: string;
   image: string;
   summary: string;
   creator: string;

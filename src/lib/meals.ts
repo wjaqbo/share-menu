@@ -1,23 +1,25 @@
 import fs from "node:fs";
-import sql from "better-sqlite3";
 import slugify from "slugify";
 import xss from "xss";
 
+import connectDB from "../../mongodb/connect";
 import { uploadImage } from "./cloudinary";
+import Meal from "../../mongodb/models/meal";
+import dummyMeals from "../../mongodb/dummy-meals";
 
-const db = sql("db/meals.db");
+connectDB(process.env.MONGODB_URL!);
 
 export async function getMeals() {
   // await new Promise((resolve) => setTimeout(resolve, 2000));
-
   // throw new Error("Loading meals failed");
-
-  return db.prepare("SELECT * FROM meals").all() as Meal[];
+  const allMeals = (await Meal.find({}).lean()) as Meal[];
+  return allMeals;
 }
 
 export async function getMeal(slug: string) {
   // await new Promise((resolve) => setTimeout(resolve, 2000));
-  return db.prepare("SELECT * FROM meals WHERE slug = ?").get(slug) as Meal;
+  const meal = (await Meal.findOne({ slug })) as Meal;
+  return meal;
 }
 
 export async function createMeal(meal: MealCreateType) {
@@ -39,15 +41,17 @@ export async function createMeal(meal: MealCreateType) {
   const uploadedImage = await uploadImage(Buffer.from(bufferedImage));
   const image = uploadedImage.url;
 
-  console.log(image);
+  await Meal.create({ ...meal, image, slug });
+}
 
-  // meal.image = photoUrl;
+export async function deleteMeal(slug: string) {
+  await Meal.deleteOne({ slug });
+}
 
-  // await new Promise((resolve) => setTimeout(resolve, 2000));
+export async function updateMeal(meal: Meal) {
+  await Meal.updateOne({ slug: meal.slug }, meal);
+}
 
-  db.prepare(
-    `
-    INSERT INTO meals (title, summary, instructions,  creator, creator_email, image, slug)
-    VALUES(@title, @summary, @instructions, @creator, @creator_email, @image, @slug)`,
-  ).run({ ...meal, image, slug });
+export async function insertData() {
+  await Meal.insertMany(dummyMeals);
 }
