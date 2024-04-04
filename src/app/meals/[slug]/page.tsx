@@ -37,7 +37,7 @@ export default async function MealDetailsPage({
   return (
     <>
       <header className="mx-auto my-20 gap-12 md:flex">
-        <div className="relative h-[20rem] w-[30rem]">
+        <div className="relative h-[20rem] md:w-[30rem]">
           <Image
             className="animate-slideRight object-cover"
             fill
@@ -45,7 +45,7 @@ export default async function MealDetailsPage({
             alt={title}
           />
         </div>
-        <div className="flex animate-slideLeft flex-col">
+        <div className="mt-20 flex animate-slideLeft flex-col">
           <h1 className="text-5xl font-bold">{title}</h1>
           <p className="mt-5 italic">
             by <a href={`mailto:${creator_email}`}>{creator}</a>

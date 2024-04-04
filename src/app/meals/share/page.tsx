@@ -28,7 +28,7 @@ export default function ShareMealPage() {
       </header>
       <section className="my-8 text-lg">
         <form action={formAction} className="flex max-w-[40rem] flex-col gap-8">
-          <div className="flex gap-4">
+          <div className="gap-4 md:flex">
             <p className="flex w-full flex-col gap-2">
               <label htmlFor="name">Name</label>
               <input

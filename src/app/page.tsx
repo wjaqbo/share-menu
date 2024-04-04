@@ -9,14 +9,14 @@ export default function HomePage() {
         <div className="h-[25rem] md:w-[40rem]">
           <ImageSlideshow />
         </div>
-        <div className="ml-auto max-w-[31rem]">
+        <div className="ml-auto mt-20 max-w-[31rem]">
           <div className="flex flex-col gap-8">
-            <h1 className="bg-gradient-to-t from-amber-400 to-orange-600 bg-clip-text text-5xl font-bold uppercase tracking-wider text-transparent">
+            <h1 className="inline-block bg-gradient-to-t from-amber-400 to-orange-600 bg-clip-text text-5xl font-bold uppercase tracking-wider text-transparent">
               NextLevel Food for Foodies
             </h1>
             <p className="text-lg">Taste & share food with your friends</p>
           </div>
-          <div className="mt-10 flex items-center gap-12">
+          <div className="mt-10 flex flex-col items-center gap-12 md:flex-row">
             <Link href="/community" className="text-lg text-orange-600">
               Join the Community
             </Link>
@@ -47,7 +47,7 @@ export default function HomePage() {
         <h2 className="my-8 text-center text-3xl font-semibold">
           Why NextLevel Food?
         </h2>
-        <div className="flex gap-16">
+        <div className="gap-16 md:flex">
           <div>
             <p>
               NextLevel Food is a platform for foodies to share their favorite

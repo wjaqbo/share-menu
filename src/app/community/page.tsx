@@ -26,7 +26,7 @@ export default function CommunityPage() {
       <section className="my-40">
         <h2 className="text-center text-3xl font-bold">Community Perks</h2>
 
-        <ul className="flex gap-12 text-center text-lg font-light">
+        <ul className="gap-12 text-center text-lg font-light md:flex">
           <li>
             <Image
               src={mealIcon}
