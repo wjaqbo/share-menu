@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import AppHeader from "@/components/app-header/app-header";
+import NavContextProvider from "@/providers/nav-context-provider";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <AppHeader />
+        <NavContextProvider>
+          <AppHeader />
+        </NavContextProvider>
         <main className="mx-auto max-w-screen-lg p-4">{children}</main>
       </body>
     </html>

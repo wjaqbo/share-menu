@@ -9,20 +9,23 @@ export default function HomePage() {
         <div className="h-[25rem] md:w-[40rem]">
           <ImageSlideshow />
         </div>
-        <div className="ml-auto mt-20 max-w-[31rem]">
-          <div className="flex flex-col gap-8">
-            <h1 className="inline-block bg-gradient-to-t from-amber-400 to-orange-600 bg-clip-text text-5xl font-bold uppercase tracking-wider text-transparent">
+        <div className="mt-20 md:ml-auto md:mt-0 md:max-w-[31rem]">
+          <div className="flex flex-col gap-8 pl-12 md:pl-0">
+            <h1 className="inline-block bg-gradient-to-t from-amber-400 to-orange-600 bg-clip-text text-4xl font-bold uppercase tracking-wider text-transparent md:text-5xl">
               NextLevel Food for Foodies
             </h1>
             <p className="text-lg">Taste & share food with your friends</p>
           </div>
           <div className="mt-10 flex flex-col items-center gap-12 md:flex-row">
-            <Link href="/community" className="text-lg text-orange-600">
+            <Link
+              href="/community"
+              className="w-full rounded-md border border-orange-500 px-4 py-4 text-lg text-orange-600 md:w-auto md:py-2"
+            >
               Join the Community
             </Link>
             <Link
               href="/meals"
-              className="rounded-md border-orange-500 bg-orange-600 px-4 py-2 text-lg font-bold text-white"
+              className="w-full rounded-md border-orange-500 bg-orange-600 px-4 py-4 text-lg font-bold text-white md:w-auto md:py-2"
             >
               Explore Meals
             </Link>

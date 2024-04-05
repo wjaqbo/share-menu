@@ -22,7 +22,6 @@ const images = [
 ];
 export default function ImageSlideshow() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((currentImageIndex + 1) % images.length);
@@ -37,7 +36,7 @@ export default function ImageSlideshow() {
             index === currentImageIndex
               ? "z-10 translate-x-0 rotate-0 scale-100 transform opacity-100"
               : "translate-x-4 rotate-6 transform opacity-0"
-          } duration-3000 absolute left-0 top-0 h-full w-full object-cover transition ease-in-out`}
+          } absolute left-0 top-0 h-full w-full object-cover transition duration-3000 ease-in-out`}
           key={index}
           src={image.image}
           alt={image.alt}
