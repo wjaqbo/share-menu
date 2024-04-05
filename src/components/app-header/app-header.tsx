@@ -9,8 +9,8 @@ import Hamburger from "./hamburger";
 
 export default function AppHeader() {
   return (
-    <header className="fixed top-0 z-20 w-full bg-black bg-opacity-60 backdrop-blur-xl md:sticky">
-      <div className="mx-auto flex max-w-screen-lg flex-col justify-between px-4 py-4 md:flex-row md:items-center md:py-0">
+    <header className="fixed top-0 z-20 w-full border-b border-slate-800 bg-slate-900 bg-opacity-60 backdrop-blur-xl md:sticky">
+      <div className="mx-auto flex max-w-screen-lg flex-col justify-between  px-4 py-4 md:flex-row md:items-center md:py-0">
         <Link
           href="/"
           className="mr-auto inline-flex items-center gap-3 font-bold uppercase tracking-wider md:text-xl"
@@ -25,9 +25,12 @@ export default function AppHeader() {
         </Link>
         <Hamburger />
         <AppNavigation>
-          <ul className="flex flex-col gap-8 text-lg font-bold tracking-wider md:flex-row">
+          <ul className="flex flex-col gap-8 text-lg font-bold tracking-wider md:flex-row md:text-sm">
             <li>
               <NavLink href="/meals">Explore Meals</NavLink>
+            </li>
+            <li>
+              <NavLink href="/drinks">Explore Drinks</NavLink>
             </li>
             <li>
               <NavLink href="/community">Foodies Community</NavLink>
