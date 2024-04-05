@@ -37,7 +37,7 @@ export default function ShareMealPage() {
                 name="name"
                 placeholder="Name"
                 required
-                className="rounded-md bg-slate-900 px-4 py-2 font-medium"
+                className="mb-8 rounded-md border border-slate-800 bg-slate-900 px-4 py-2 font-medium md:mb-0"
               />
             </p>
             <p className="flex w-full flex-col gap-2">

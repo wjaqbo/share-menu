@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { useNavContext } from "@/providers/nav-context-provider";
+
 export default function NavLink({
   href,
   children,
@@ -11,9 +13,11 @@ export default function NavLink({
   children: React.ReactNode;
 }) {
   const path = usePathname();
+  const { setIsOpen } = useNavContext();
 
   return (
     <Link
+      onClick={() => setIsOpen(false)}
       href={href}
       className={`hover:text-amber-400 ${
         path.startsWith(href) ? "text-amber-400" : ""

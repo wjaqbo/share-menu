@@ -20,7 +20,7 @@ export default function DrinksPage() {
         </p>
         <div className="mt-8">
           <Link
-            className="rounded-md border-orange-500 bg-orange-600 px-4 py-2 text-lg font-bold text-white"
+            className="inline-block w-full rounded-md border-orange-500 bg-orange-600 px-4 py-4 text-center text-lg font-bold text-white md:w-auto md:py-2"
             href="/meals/share"
           >
             Share your favorite recipe
