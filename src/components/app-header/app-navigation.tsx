@@ -2,7 +2,11 @@
 
 import { useNavContext } from "@/providers/nav-context-provider";
 
-export default function AppNavigation({ children }) {
+export default function AppNavigation({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const { isOpen } = useNavContext();
   return (
     <nav
