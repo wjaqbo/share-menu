@@ -13,14 +13,16 @@ export default function NavLink({
   children: React.ReactNode;
 }) {
   const path = usePathname();
-  const { isOpen, setIsOpen } = useNavContext();
+  const { setIsOpen } = useNavContext();
+  const closingHamburgerAnimation = document.getElementById(
+    "reverse",
+  ) as unknown as SVGAnimateElement;
 
   function handleClick() {
-    setIsOpen(!isOpen);
-    const closingHamburgerAnimation = document.getElementById(
-      "reverse",
-    ) as unknown as SVGAnimateElement;
-    closingHamburgerAnimation.beginElement();
+    if (closingHamburgerAnimation) {
+      setIsOpen(false);
+      closingHamburgerAnimation.beginElement();
+    }
   }
 
   return (

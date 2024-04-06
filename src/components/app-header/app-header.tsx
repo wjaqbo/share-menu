@@ -18,7 +18,7 @@ export default function AppHeader() {
           <Image
             src={logoImg}
             alt="Aplate with food on it"
-            className="h-9 w-9 md:h-16 md:w-16"
+            className="h-9 w-9 md:h-16 md:w-16 md:p-1"
             priority
           />
           NextLevel Food

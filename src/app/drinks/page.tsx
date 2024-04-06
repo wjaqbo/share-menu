@@ -7,8 +7,8 @@ export const metadata = {
 export default function DrinksPage() {
   return (
     <>
-      <header className="my-20">
-        <h1 className="mb-8 text-5xl font-bold">
+      <header className="mb-28 mt-40">
+        <h1 className="mb-3 text-5xl font-bold">
           Delicious drinks, created{" "}
           <span className="bg-gradient-to-tr from-amber-400 to-orange-600 bg-clip-text text-transparent">
             by you
