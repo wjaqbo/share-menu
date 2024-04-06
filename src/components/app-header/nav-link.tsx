@@ -13,11 +13,19 @@ export default function NavLink({
   children: React.ReactNode;
 }) {
   const path = usePathname();
-  const { setIsOpen } = useNavContext();
+  const { isOpen, setIsOpen } = useNavContext();
+
+  function handleClick() {
+    setIsOpen(!isOpen);
+    const closingHamburgerAnimation = document.getElementById(
+      "reverse",
+    ) as unknown as SVGAnimateElement;
+    closingHamburgerAnimation.beginElement();
+  }
 
   return (
     <Link
-      onClick={() => setIsOpen(false)}
+      onClick={handleClick}
       href={href}
       className={`hover:text-amber-400 ${
         path.startsWith(href) ? "text-amber-400" : ""

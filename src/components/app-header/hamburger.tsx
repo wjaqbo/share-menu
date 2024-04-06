@@ -4,24 +4,15 @@ import { useNavContext } from "@/providers/nav-context-provider";
 export default function Hamburger() {
   const { isOpen, setIsOpen } = useNavContext();
 
+  function handleClick() {
+    setIsOpen(!isOpen);
+  }
+
   return (
     <button
       className="fixed right-4 top-[18px] flex items-center justify-center md:hidden"
-      onClick={() => setIsOpen(!isOpen)}
+      onClick={handleClick}
     >
-      {/* <svg
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        className="h-8 w-8"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g>
-          <rect height="0.5" width="16" x="1" y="10" />
-
-          <rect height="0.5" width="16" x="1" y="5" />
-        </g>
-      </svg> */}
       <svg
         className="h-8 w-8"
         xmlns="http://www.w3.org/2000/svg"
