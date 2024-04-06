@@ -6,3 +6,52 @@ body {
   background: #000;
   color: hsl(160, 100%, 75%);
 }
+
+/**
+ * Utility: Ripple
+ * --------------------------------------------------
+ */
+
+.c-ripple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+.c-ripple__circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(246, 8, 139, 0.675);
+  .c-ripple.is-active & {
+    animation: a-ripple 0.4s ease-in;
+  }
+}
+
+/**
+ * Animation: Ripple
+ * --------------------------------------------------
+ */
+
+@keyframes a-ripple {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    width: 200%;
+    padding-bottom: 200%;
+    opacity: 0;
+  }
+}

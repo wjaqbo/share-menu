@@ -21,6 +21,7 @@ export default function HomePage() {
               Join the Community
             </Button>
             <Button href="/meals">Explore Meals</Button>
+            <Button>Explore Meals</Button>
           </div>
         </div>
       </header>
