@@ -1,12 +1,21 @@
 "use client";
 
 import { useNavContext } from "@/providers/nav-context-provider";
+import { useEffect, useRef } from "react";
 export default function Hamburger() {
   const { isOpen, setIsOpen } = useNavContext();
+
+  const animationRef = useRef<SVGAnimateElement>(null);
 
   function handleClick() {
     setIsOpen(!isOpen);
   }
+
+  useEffect(() => {
+    if (!isOpen && animationRef.current) {
+      animationRef.current.beginElement();
+    }
+  }, [isOpen]);
 
   return (
     <button
@@ -30,6 +39,7 @@ export default function Hamburger() {
             fill="freeze"
             begin="start.begin"
           />
+
           <animate
             dur="0.2s"
             attributeName="d"
@@ -39,7 +49,13 @@ export default function Hamburger() {
           />
         </path>
         <rect width="10" height="10" stroke="none">
-          <animate dur="2s" id="reverse" attributeName="width" begin="click" />
+          <animate
+            dur="2s"
+            ref={animationRef}
+            id="reverse"
+            attributeName="width"
+            begin="click"
+          />
         </rect>
         <rect width="10" height="10" stroke="none">
           <animate

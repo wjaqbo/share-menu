@@ -14,15 +14,9 @@ export default function NavLink({
 }) {
   const path = usePathname();
   const { setIsOpen } = useNavContext();
-  const closingHamburgerAnimation = document.getElementById(
-    "reverse",
-  ) as unknown as SVGAnimateElement;
 
   function handleClick() {
-    if (closingHamburgerAnimation) {
-      setIsOpen(false);
-      closingHamburgerAnimation.beginElement();
-    }
+    setIsOpen(false);
   }
 
   return (
