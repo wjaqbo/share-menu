@@ -36,6 +36,9 @@ export default function AppHeader() {
               <NavLink href="/community">Foodies Community</NavLink>
             </li>
             <li>
+              <NavLink href="/qrcode">Scan QR Code</NavLink>
+            </li>
+            <li>
               <NavLink href="/login">Log in</NavLink>
             </li>
           </ul>

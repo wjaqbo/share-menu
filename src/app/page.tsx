@@ -1,6 +1,6 @@
 import HomeAccordion from "@/components/home/home-accordion";
 import ImageSlideshow from "@/components/slideshow/image-slideshow";
-import Link from "next/link";
+import Button from "@/components/ui/button";
 
 export default function HomePage() {
   return (
@@ -17,18 +17,10 @@ export default function HomePage() {
             <p className="text-lg">Taste & share food with your friends</p>
           </div>
           <div className="mt-10 flex flex-col items-center gap-8 text-center md:flex-row md:gap-12">
-            <Link
-              href="/community"
-              className="w-full rounded-md border border-orange-500 px-4 py-4 text-lg text-orange-600 md:w-auto md:py-2"
-            >
+            <Button href="/community" noBackground>
               Join the Community
-            </Link>
-            <Link
-              href="/meals"
-              className="w-full rounded-md border-orange-500 bg-orange-600 px-4 py-4 text-lg font-bold text-white md:w-auto md:py-2"
-            >
-              Explore Meals
-            </Link>
+            </Button>
+            <Button href="/meals">Explore Meals</Button>
           </div>
         </div>
       </header>

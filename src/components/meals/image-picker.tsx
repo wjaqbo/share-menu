@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
+import Button from "../ui/button";
 
 export default function ImagePicker({
   label,
@@ -39,10 +40,10 @@ export default function ImagePicker({
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={name}>{label}</label>
-      <div className="flex items-start gap-4">
+      <div className="flex flex-col items-start gap-4 md:flex-row">
         <div>
           {!pickedImage && (
-            <div className="flex h-40 w-40 items-center border border-orange-600 text-center ">
+            <div className="flex h-40 w-40 items-center rounded-md border border-orange-600 text-center ">
               <p>No image selected</p>
             </div>
           )}
@@ -67,13 +68,9 @@ export default function ImagePicker({
           onChange={handleImageChange}
           required
         />
-        <button
-          className="rounded-md border border-orange-500 px-4 py-2 text-orange-600"
-          type="button"
-          onClick={handlePickImage}
-        >
+        <Button type="button" onClick={handlePickImage} noBackground>
           Pick an image
-        </button>
+        </Button>
       </div>
     </div>
   );

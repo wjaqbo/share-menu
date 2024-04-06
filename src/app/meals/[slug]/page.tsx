@@ -39,13 +39,13 @@ export default async function MealDetailsPage({
       <header className="mx-auto my-20 gap-12 md:flex">
         <div className="relative h-[20rem] md:w-[30rem]">
           <Image
-            className="animate-slideRight object-cover"
+            className="animate-slideUp object-cover md:animate-slideRight"
             fill
             src={image}
             alt={title}
           />
         </div>
-        <div className="mt-20 flex animate-slideLeft flex-col">
+        <div className="mt-20 flex animate-slideUp flex-col md:animate-slideLeft">
           <h1 className="text-5xl font-bold">{title}</h1>
           <p className="mt-5 italic">
             by <a href={`mailto:${creator_email}`}>{creator}</a>

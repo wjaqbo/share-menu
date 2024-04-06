@@ -30,12 +30,12 @@ export default function ShareMealPage() {
         <form action={formAction} className="flex max-w-[40rem] flex-col gap-8">
           <div className="gap-4 md:flex">
             <p className="flex w-full flex-col gap-2">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">Your name</label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                placeholder="Name"
+                placeholder="Your name"
                 required
                 className="mb-8 rounded-md border border-slate-800 bg-slate-900 px-4 py-2 font-medium md:mb-0"
               />

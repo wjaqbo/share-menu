@@ -1,8 +1,8 @@
 import MealsGrid from "@/components/meals/meals-grid";
 import { getMeals } from "@/lib/meals";
-import Link from "next/link";
 import { Suspense } from "react";
 import LoadingMeals from "./loading-meals";
+import Button from "@/components/ui/button";
 
 export const metadata = {
   title: "Meals",
@@ -28,12 +28,7 @@ export default function MealsPage() {
           Choose your favorite recipe and cook it yourself. It is easy and fun!
         </p>
         <div className="mt-8">
-          <Link
-            className="inline-block w-full rounded-md border-orange-500 bg-orange-600 px-4 py-4 text-center text-lg font-bold text-white md:w-auto md:py-2"
-            href="/meals/share"
-          >
-            Share your favorite recipe
-          </Link>
+          <Button href="/meals/share">Share your favorite recipe</Button>
         </div>
       </header>
       <section>

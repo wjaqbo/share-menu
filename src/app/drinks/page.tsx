@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Button from "@/components/ui/button";
 
 export const metadata = {
   title: "Drinks",
@@ -19,12 +19,7 @@ export default function DrinksPage() {
           coctails. It is easy and fun!
         </p>
         <div className="mt-8">
-          <Link
-            className="inline-block w-full rounded-md border-orange-500 bg-orange-600 px-4 py-4 text-center text-lg font-bold text-white md:w-auto md:py-2"
-            href="/meals/share"
-          >
-            Share your favorite recipe
-          </Link>
+          <Button href="/meals/share">Share your favorite recipe</Button>
         </div>
       </header>
       <section>
