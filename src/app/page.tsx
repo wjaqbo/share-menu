@@ -11,7 +11,7 @@ export default function HomePage() {
         </div>
         <div className="mt-8 md:ml-auto md:mt-0 md:max-w-[31rem]">
           <div className="flex flex-col gap-8">
-            <h1 className="inline-block bg-gradient-to-t from-amber-400 to-orange-600 bg-clip-text text-4xl font-bold uppercase leading-tight tracking-wider text-transparent md:text-5xl">
+            <h1 className="inline-block animate-slideUp bg-gradient-to-t from-amber-400 to-orange-600 bg-clip-text text-4xl font-bold uppercase leading-tight tracking-wider text-transparent md:text-5xl">
               NextLevel Food for Foodies
             </h1>
             <p className="text-lg">Taste & share food with your friends</p>

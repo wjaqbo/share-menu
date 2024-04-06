@@ -13,7 +13,7 @@ export default function CommunityPage() {
   return (
     <>
       <header className="mt-40 flex flex-col items-center gap-3 text-center">
-        <h1 className="text-5xl font-bold">
+        <h1 className="animate-slideUp text-5xl font-bold">
           One shared passion:{" "}
           <span className="bg-gradient-to-tr from-amber-400 to-orange-600 bg-clip-text text-transparent">
             Food
