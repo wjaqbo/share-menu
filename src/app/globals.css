@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background: #000;
-  color: hsl(160, 100%, 75%);
-}
-
 /**
  * Utility: Ripple
  * --------------------------------------------------

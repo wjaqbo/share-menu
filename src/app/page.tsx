@@ -38,7 +38,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="mx-auto my-24 flex flex-col gap-4 rounded-3xl border border-slate-800 bg-slate-900 px-8 pb-16 text-lg font-light  leading-loose text-white">
+      <section className="mx-auto my-24 flex flex-col gap-4 rounded-3xl border bg-white px-8 pb-16 text-lg font-light leading-loose text-black dark:border-slate-800 dark:bg-slate-900 dark:text-white">
         <h2 className="my-8 text-center text-3xl font-semibold leading-normal">
           Why NextLevel Food?
         </h2>

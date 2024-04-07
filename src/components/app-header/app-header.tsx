@@ -6,10 +6,11 @@ import AppHeaderBackground from "./app-header-background";
 import NavLink from "./nav-link";
 import AppNavigation from "./app-navigation";
 import Hamburger from "./hamburger";
+import { ModeToggle } from "./mode-toggle";
 
 export default function AppHeader() {
   return (
-    <header className="fixed top-0 z-20 w-full border-b border-slate-800 bg-slate-900 bg-opacity-60 backdrop-blur-xl md:sticky">
+    <header className="fixed top-0 z-20 w-full border-b border-slate-300 bg-slate-200 bg-opacity-60 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900 md:sticky">
       <div className="mx-auto flex max-w-screen-lg flex-col justify-between  px-4 py-4 md:flex-row md:items-center md:py-0">
         <Link
           href="/"
@@ -24,6 +25,9 @@ export default function AppHeader() {
           NextLevel Food
         </Link>
         <Hamburger />
+        <div className="fixed right-14 top-6 md:right-5">
+          <ModeToggle />
+        </div>
         <AppNavigation>
           <ul className="flex flex-col gap-8 text-lg font-bold tracking-wider md:flex-row md:text-sm">
             <li>

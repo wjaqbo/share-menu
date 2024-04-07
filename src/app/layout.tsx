@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import AppHeader from "@/components/app-header/app-header";
 import NavContextProvider from "@/providers/nav-context-provider";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -17,12 +18,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={montserrat.className}>
-        <NavContextProvider>
-          <AppHeader />
-        </NavContextProvider>
-        <main className="mx-auto max-w-screen-lg p-4">{children}</main>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${montserrat.className} bg-slate-50 dark:bg-black dark:text-[#80ffd4]`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NavContextProvider>
+            <AppHeader />
+          </NavContextProvider>
+          <main className="mx-auto max-w-screen-lg p-4">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );

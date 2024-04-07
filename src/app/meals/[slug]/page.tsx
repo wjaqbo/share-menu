@@ -50,13 +50,13 @@ export default async function MealDetailsPage({
           <p className="mt-5 italic">
             by <a href={`mailto:${creator_email}`}>{creator}</a>
           </p>
-          <p className="mt-5 text-lg font-light text-white">{summary}</p>
+          <p className="mt-5 text-lg font-light dark:text-white">{summary}</p>
         </div>
       </header>
-      <section className="my-14 animate-slideUp rounded-3xl border border-slate-800 bg-slate-900 px-8 py-16">
+      <section className="my-14 animate-slideUp rounded-3xl border border-slate-100 bg-white px-8 py-16 shadow-md dark:border-slate-800 dark:bg-slate-900">
         <h2 className="mb-10 text-3xl font-semibold">Instructions</h2>
         <p
-          className="text-lg font-light text-white"
+          className="text-lg font-light dark:text-white"
           dangerouslySetInnerHTML={{ __html: formattedInstructions }}
         ></p>
       </section>

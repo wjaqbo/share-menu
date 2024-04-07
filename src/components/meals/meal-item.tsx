@@ -17,7 +17,7 @@ export default function MealItem({
   creator: string;
 }) {
   return (
-    <article className="flex h-full flex-col justify-between overflow-hidden rounded border border-slate-800 bg-slate-900 shadow-md transition">
+    <article className="flex h-full flex-col justify-between overflow-hidden rounded border border-slate-100 bg-white shadow-md transition dark:border-slate-800 dark:bg-slate-900">
       <header>
         <div className="relative h-56 w-full">
           <Image
@@ -32,7 +32,7 @@ export default function MealItem({
           <p className="text-sm">by {creator}</p>
         </div>
       </header>
-      <div className="flex h-full flex-col justify-between text-sm text-white">
+      <div className="flex h-full flex-col justify-between text-sm dark:text-white">
         <p className="p-4">{summary}</p>
         <div className="p-4 text-right">
           <Link
