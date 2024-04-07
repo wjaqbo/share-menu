@@ -27,7 +27,6 @@ export default function Button({
 
     rippleCircleRef.current.style.left = `${x}px`;
     rippleCircleRef.current.style.top = `${y}px`;
-    console.log("offset", offset);
 
     rippleRef.current.classList.add("is-active");
   }

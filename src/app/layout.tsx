@@ -4,6 +4,7 @@ import "./globals.css";
 import AppHeader from "@/components/app-header/app-header";
 import NavContextProvider from "@/providers/nav-context-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Toaster />
           <NavContextProvider>
             <AppHeader />
           </NavContextProvider>
