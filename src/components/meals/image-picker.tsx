@@ -3,13 +3,24 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import Button from "../ui/button";
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 export default function ImagePicker({
   label,
   name,
+  control,
 }: {
   label: string;
   name: string;
+  control: any;
 }) {
   const [pickedImage, setPickedImage] = useState<string | null>(null);
   const imageInputRef = useRef<HTMLInputElement | null>(null);
@@ -58,7 +69,21 @@ export default function ImagePicker({
             </div>
           )}
         </div>
-        <input
+        <FormField
+          control={control}
+          name={name}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{label}</FormLabel>
+              <FormControl>
+                <Input type="file" {...field} />
+              </FormControl>
+              <FormDescription>This is your image.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        {/* <input
           type="file"
           id={name}
           name={name}
@@ -67,7 +92,7 @@ export default function ImagePicker({
           ref={imageInputRef}
           onChange={handleImageChange}
           // required
-        />
+        /> */}
         <Button type="button" onClick={handlePickImage} noBackground>
           Pick an image
         </Button>

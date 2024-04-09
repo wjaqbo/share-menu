@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useRef } from "react";
 import { useFormState } from "react-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -38,7 +37,7 @@ const FormSchema = z.object({
   instructions: z.string().min(4, {
     message: "Title must be at least 4 characters.",
   }),
-  // image: typeof window === "undefined" ? z.undefined() : z.instanceof(File),
+  image: typeof window === "undefined" ? z.undefined() : z.instanceof(File),
 });
 
 export default function CreateMealForm() {
@@ -52,7 +51,7 @@ export default function CreateMealForm() {
       title: "",
       summary: "",
       instructions: "",
-      // image: "",
+      image: "",
     },
   });
 
@@ -65,7 +64,7 @@ export default function CreateMealForm() {
     formData.append("title", data.title);
     formData.append("summary", data.summary);
     formData.append("instructions", data.instructions);
-    // formData.append("image", data.image);
+    formData.append("image", data.image);
 
     formAction(formData);
 
@@ -175,7 +174,7 @@ export default function CreateMealForm() {
             </FormItem>
           )}
         />
-        {/* <ImagePicker  label="Image" name="image" /> */}
+        <ImagePicker label="Image" name="image" control={form.control} />
         {state.message && <p>{state.message}</p>}
         <p className="text-right">
           <MealsFormSubmit />
