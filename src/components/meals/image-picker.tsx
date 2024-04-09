@@ -63,10 +63,10 @@ export default function ImagePicker({
           id={name}
           name={name}
           accept="image/png, image/jpeg"
-          className="hidden"
+          // className="hidden"
           ref={imageInputRef}
           onChange={handleImageChange}
-          required
+          // required
         />
         <Button type="button" onClick={handlePickImage} noBackground>
           Pick an image
