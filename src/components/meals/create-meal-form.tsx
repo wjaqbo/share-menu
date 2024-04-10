@@ -37,34 +37,38 @@ const FormSchema = z.object({
   instructions: z.string().min(4, {
     message: "Title must be at least 4 characters.",
   }),
-  image: typeof window === "undefined" ? z.undefined() : z.instanceof(File),
+  image: z
+    .any()
+    .refine((file) => file?.length == 1, "File is required.")
+    .refine((file) => file[0]?.size <= 3000000, `Max file size is 3MB.`),
 });
 
 export default function CreateMealForm() {
   const [state, formAction] = useFormState(shareMeal, { message: null });
 
   const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
     defaultValues: {
       name: "",
       email: "",
       title: "",
       summary: "",
       instructions: "",
-      image: "",
+      image: undefined,
     },
+    mode: "onChange",
+    resolver: zodResolver(FormSchema),
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log("on submit", data);
+  const imageRef = form.register("image", { required: true });
 
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("email", data.email);
     formData.append("title", data.title);
     formData.append("summary", data.summary);
     formData.append("instructions", data.instructions);
-    formData.append("image", data.image);
+    formData.append("image", data.image[0]);
 
     formAction(formData);
 
@@ -82,8 +86,6 @@ export default function CreateMealForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        // action={formAction}
-        method="POST"
         className="flex max-w-[40rem] flex-col gap-8"
       >
         <div className="gap-4 md:flex">
@@ -174,7 +176,12 @@ export default function CreateMealForm() {
             </FormItem>
           )}
         />
-        <ImagePicker label="Image" name="image" control={form.control} />
+        <ImagePicker
+          label="Image"
+          name="image"
+          control={form.control}
+          imageRef={imageRef}
+        />
         {state.message && <p>{state.message}</p>}
         <p className="text-right">
           <MealsFormSubmit />

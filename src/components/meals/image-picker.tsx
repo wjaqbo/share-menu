@@ -17,10 +17,12 @@ export default function ImagePicker({
   label,
   name,
   control,
+  imageRef,
 }: {
   label: string;
   name: string;
   control: any;
+  imageRef: any;
 }) {
   const [pickedImage, setPickedImage] = useState<string | null>(null);
   const imageInputRef = useRef<HTMLInputElement | null>(null);
@@ -76,23 +78,19 @@ export default function ImagePicker({
             <FormItem>
               <FormLabel>{label}</FormLabel>
               <FormControl>
-                <Input type="file" {...field} />
+                <Input
+                  type="file"
+                  // accept="image/png, image/jpeg"
+                  {...imageRef}
+                  // ref={imageInputRef}
+                />
               </FormControl>
               <FormDescription>This is your image.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        {/* <input
-          type="file"
-          id={name}
-          name={name}
-          accept="image/png, image/jpeg"
-          // className="hidden"
-          ref={imageInputRef}
-          onChange={handleImageChange}
-          // required
-        /> */}
+
         <Button type="button" onClick={handlePickImage} noBackground>
           Pick an image
         </Button>

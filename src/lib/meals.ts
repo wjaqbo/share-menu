@@ -30,6 +30,7 @@ export async function createMeal(meal: MealCreateType) {
   // const fileName = `${slug}.${extension}`;
 
   // const stream = fs.createWriteStream(`public/images/${fileName}`);
+  console.log("meal", meal.imageFile);
   const bufferedImage = await meal.imageFile.arrayBuffer();
 
   // stream.write(Buffer.from(bufferedImage), (error) => {
