@@ -27,6 +27,8 @@ export default function ImagePicker({
   const [pickedImage, setPickedImage] = useState<string | null>(null);
   const imageInputRef = useRef<HTMLInputElement | null>(null);
 
+  const { ref, ...rest } = imageRef;
+
   function handlePickImage() {
     if (!imageInputRef.current) {
       return;
@@ -52,40 +54,46 @@ export default function ImagePicker({
 
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={name}>{label}</label>
-      <div className="flex flex-col items-start gap-4 md:flex-row">
-        <div>
-          {!pickedImage && (
-            <div className="flex h-40 w-40 items-center rounded-md border border-orange-600 text-center ">
-              <p>No image selected</p>
-            </div>
-          )}
-          {pickedImage && (
-            <div className="relative h-40 w-40">
-              <Image
-                className="object-cover"
-                fill
-                src={pickedImage}
-                alt="Picked image"
-              />
-            </div>
-          )}
-        </div>
+      <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
         <FormField
           control={control}
           name={name}
           render={({ field }) => (
             <FormItem>
               <FormLabel>{label}</FormLabel>
+              <div>
+                {!pickedImage && (
+                  <div className="flex h-40 w-40 items-center rounded-md border border-orange-600 text-center ">
+                    <p>No image selected</p>
+                  </div>
+                )}
+                {pickedImage && (
+                  <div className="relative h-40 w-40">
+                    <Image
+                      className="object-cover"
+                      fill
+                      src={pickedImage}
+                      alt="Picked image"
+                    />
+                  </div>
+                )}
+              </div>
               <FormControl>
                 <Input
+                  className="hidden"
                   type="file"
-                  // accept="image/png, image/jpeg"
-                  {...imageRef}
-                  // ref={imageInputRef}
+                  {...rest}
+                  ref={(e) => {
+                    ref(e);
+                    imageInputRef.current = e;
+                  }}
+                  onChange={(e) => {
+                    imageRef.onChange(e);
+                    handleImageChange(e);
+                  }}
                 />
               </FormControl>
-              <FormDescription>This is your image.</FormDescription>
+              <FormDescription>This is your meal image.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
