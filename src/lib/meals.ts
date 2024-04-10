@@ -1,4 +1,3 @@
-import fs from "node:fs";
 import slugify from "slugify";
 import xss from "xss";
 
@@ -26,21 +25,13 @@ export async function createMeal(meal: MealCreateType) {
   const slug = slugify(xss(meal.title), { lower: true });
   meal.instructions = xss(meal.instructions);
 
-  // const extension = meal.imageFile.name.split(".").pop();
-  // const fileName = `${slug}.${extension}`;
+  const extension = meal.imageFile.name.split(".").pop();
+  const fileName = `${slug}.${extension}`;
 
-  // const stream = fs.createWriteStream(`public/images/${fileName}`);
-  console.log("meal", meal.imageFile);
   const bufferedImage = await meal.imageFile.arrayBuffer();
 
-  // stream.write(Buffer.from(bufferedImage), (error) => {
-  //   if (error) {
-  //     throw new Error("Failed to write image!");
-  //   }
-  // });
-
-  const uploadedImage = await uploadImage(Buffer.from(bufferedImage));
-  const image = uploadedImage.url;
+  const uploadedImage = await uploadImage(Buffer.from(bufferedImage), slug);
+  const image = fileName;
 
   await Meal.create({ ...meal, image, slug });
 }

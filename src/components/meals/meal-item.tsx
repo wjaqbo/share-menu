@@ -21,7 +21,7 @@ export default function MealItem({
       <header>
         <div className="relative h-56 w-full">
           <Image
-            src={image}
+            src={process.env.CLOUDINARY_PUBLIC_URL + image}
             alt={title}
             fill
             className="absolute left-0 top-0 h-full w-full animate-fadeIn object-cover"

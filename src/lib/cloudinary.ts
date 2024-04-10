@@ -11,12 +11,15 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-export async function uploadImage(buffer: Buffer): Promise<UploadApiResponse> {
+export async function uploadImage(
+  buffer: Buffer,
+  fileName: string,
+): Promise<UploadApiResponse> {
   return new Promise((resolve, reject) => {
     const uploadStream = cloudinary.uploader.upload_stream(
       {
         folder: "images",
-        // upload_preset: "ml_default",
+        public_id: fileName,
       },
       (
         err: UploadApiErrorResponse | undefined,

@@ -41,7 +41,7 @@ export default async function MealDetailsPage({
           <Image
             className="animate-slideUp object-cover md:animate-slideRight"
             fill
-            src={image}
+            src={process.env.CLOUDINARY_PUBLIC_URL + image}
             alt={title}
           />
         </div>
