@@ -177,7 +177,7 @@ export default function CreateMealForm() {
                   placeholder="Instructions"
                   autoComplete="Instructions"
                   {...field}
-                  rows={2}
+                  rows={8}
                   maxLength={200}
                 />
               </FormControl>

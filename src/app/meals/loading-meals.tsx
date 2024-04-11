@@ -2,7 +2,7 @@ import React from "react";
 
 export default function LoadingMeals() {
   return (
-    <div>
+    <div className="p-10">
       <svg
         className="mx-auto h-52 w-52 animate-spin stroke-orange-600 p-0"
         viewBox="0 0 800 800"
