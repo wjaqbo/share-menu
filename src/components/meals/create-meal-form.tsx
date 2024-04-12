@@ -73,31 +73,14 @@ export default function CreateMealForm() {
 
   const imageRef = form.register("image", { required: true });
 
-  async function onSubmit(data: z.infer<typeof FormSchema>) {
-    const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("email", data.email);
-    formData.append("title", data.title);
-    formData.append("summary", data.summary);
-    formData.append("instructions", data.instructions);
-    formData.append("image", data.image[0]);
-
-    formAction(formData);
-
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
-  }
-
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        action={async (formData: FormData) => {
+          const valid = await form.trigger();
+          if (!valid) return;
+          return formAction(formData);
+        }}
         className="flex max-w-[40rem] flex-col gap-8"
       >
         <div className="gap-4 md:flex">
