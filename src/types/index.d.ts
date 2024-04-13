@@ -10,3 +10,9 @@ type Meal = {
 };
 
 type MealCreateType = Omit<Meal, "_id" | "slug"> & { imageFile: File };
+
+type User = {
+  _id: string;
+  email: string;
+  password: string;
+};

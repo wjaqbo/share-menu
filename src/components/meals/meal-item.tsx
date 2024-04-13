@@ -24,6 +24,7 @@ export default function MealItem({
             src={process.env.CLOUDINARY_PUBLIC_URL + image}
             alt={title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="absolute left-0 top-0 h-full w-full animate-fadeIn object-cover"
           />
         </div>

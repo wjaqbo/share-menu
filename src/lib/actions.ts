@@ -2,11 +2,32 @@
 
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { AuthError } from "next-auth";
 
+import { signIn } from "../../auth";
 import { createMeal } from "./meals";
 
 function isValidText(text: string | null) {
   return !text || text.trim() === "";
+}
+
+export async function authenticate(
+  prevState: string | undefined,
+  formData: FormData,
+) {
+  try {
+    await signIn("credentials", formData);
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case "CredentialsSignin":
+          return "Invalid credentials.";
+        default:
+          return "Something went wrong.";
+      }
+    }
+    throw error;
+  }
 }
 
 export async function shareMeal(
