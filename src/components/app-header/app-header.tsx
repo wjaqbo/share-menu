@@ -33,7 +33,7 @@ export default async function AppHeader() {
           <ModeToggle />
         </div>
         <AppNavigation>
-          <ul className="flex flex-col items-center gap-8 text-lg font-bold tracking-wider md:flex-row md:text-sm">
+          <ul className="flex flex-col gap-8 text-lg font-bold tracking-wider md:flex-row md:items-center md:text-sm">
             <li>
               <NavLink href="/meals">Explore Meals</NavLink>
             </li>
