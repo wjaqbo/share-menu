@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { ButtonHTMLAttributes, useRef } from "react";
 
@@ -7,11 +8,13 @@ export default function Button({
   children,
   href,
   noBackground = false,
+  className,
   ...props
 }: {
   children: React.ReactNode;
   href?: string;
   noBackground?: boolean;
+  className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>) {
   const buttonRef = useRef<HTMLAnchorElement & HTMLButtonElement>(null);
   const rippleCircleRef = useRef<HTMLSpanElement>(null);
@@ -59,7 +62,13 @@ export default function Button({
       onMouseDownCapture={stopAnimation}
       ref={buttonRef}
       {...props}
-      className={`${noBackground ? "bg-transparent text-orange-600" : "bg-orange-600 font-bold text-white"} relative w-full rounded-md border border-orange-500 px-4 py-4 text-lg disabled:bg-gray-500 disabled:text-black md:w-auto md:py-2`}
+      className={cn(
+        "relative w-full rounded-md border border-orange-500 px-4 py-4 text-lg disabled:bg-gray-500 disabled:text-black md:w-auto md:py-2",
+        noBackground
+          ? "bg-transparent text-orange-600"
+          : "bg-orange-600 font-bold text-white",
+        className,
+      )}
     >
       <div ref={rippleRef} className="c-ripple">
         <span ref={rippleCircleRef} className="c-ripple__circle"></span>

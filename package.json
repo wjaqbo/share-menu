@@ -16,6 +16,7 @@
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.5",
+    "bcrypt": "^5.1.1",
     "better-sqlite3": "^9.4.3",
     "class-variance-authority": "^0.7.0",
     "cloudinary": "^2.1.0",
@@ -23,6 +24,7 @@
     "lucide-react": "^0.364.0",
     "mongoose": "^8.2.4",
     "next": "14.1.4",
+    "next-auth": "^5.0.0-beta.16",
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
@@ -36,6 +38,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/better-sqlite3": "^7.6.9",
     "@types/node": "^20",
     "@types/react": "^18",

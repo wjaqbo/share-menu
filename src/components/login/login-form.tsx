@@ -3,8 +3,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useFormState } from "react-dom";
 
-import Button from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -16,9 +16,11 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
+import { authenticate } from "@/lib/actions";
+import LoginButton from "./login-button";
 
 const FormSchema = z.object({
-  username: z.string().min(2, {
+  email: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
   password: z.string().min(4, {
@@ -27,10 +29,12 @@ const FormSchema = z.object({
 });
 
 export function LoginForm() {
+  const [errorMessage, dispatch] = useFormState(authenticate, undefined);
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      username: "",
+      email: "",
       password: "",
     },
   });
@@ -51,21 +55,18 @@ export function LoginForm() {
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        action={dispatch}
+        // onSubmit={form.handleSubmit(onSubmit)}
         className="min-w-72 space-y-6"
       >
         <FormField
           control={form.control}
-          name="username"
+          name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input
-                  placeholder="Username"
-                  {...field}
-                  autoComplete="username"
-                />
+                <Input placeholder="Email" {...field} autoComplete="email" />
               </FormControl>
               {/* <FormDescription>
                 This is your public display name.
@@ -92,7 +93,20 @@ export function LoginForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Log In</Button>
+        <div className="pt-4">
+          <LoginButton />
+        </div>
+        <div
+          className="flex h-8 items-end space-x-1"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          {errorMessage && (
+            <>
+              <p className="text-sm text-red-500">{errorMessage}</p>
+            </>
+          )}
+        </div>
       </form>
     </Form>
   );
