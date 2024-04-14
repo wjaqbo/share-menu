@@ -12,7 +12,7 @@ function isValidText(text: string | null) {
 }
 
 export async function authenticate(
-  _prevState: string | undefined,
+  prevState: string | undefined,
   formData: FormData,
 ) {
   try {

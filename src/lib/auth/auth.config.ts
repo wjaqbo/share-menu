@@ -6,14 +6,18 @@ export const authConfig = {
   },
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
-      console.log("next-url", nextUrl);
       const isLoggedIn = !!auth?.user;
-      const isOnSharingPage = nextUrl.pathname.startsWith("/meals/share");
-      if (isOnSharingPage) {
+      const isOnProtectedPage = nextUrl.pathname.startsWith("/meals/share");
+      const isOnLoginPage = nextUrl.pathname.startsWith("/login");
+      if (isOnLoginPage) {
+        if (isLoggedIn)
+          return Response.redirect(
+            nextUrl.searchParams.get("callbackUrl") || new URL("/", nextUrl),
+          );
+      }
+      if (isOnProtectedPage) {
         if (isLoggedIn) return true;
         return false;
-      } else if (isLoggedIn) {
-        // return Response.redirect(new URL("/meals/share", nextUrl));
       }
       return true;
     },
