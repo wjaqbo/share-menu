@@ -93,7 +93,9 @@ export function LoginForm() {
             </FormItem>
           )}
         />
-        <LoginButton />
+        <div className="pt-4">
+          <LoginButton />
+        </div>
         <div
           className="flex h-8 items-end space-x-1"
           aria-live="polite"

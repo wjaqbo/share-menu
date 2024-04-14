@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { auth } from "../../../auth";
 
+import { auth } from "@/lib/auth/auth";
 import logoImg from "@/assets/logo.png";
 import AppHeaderBackground from "./app-header-background";
 import NavLink from "./nav-link";
@@ -18,7 +18,7 @@ export default async function AppHeader() {
       <div className="mx-auto flex max-w-screen-lg flex-col justify-between  px-4 py-4 md:flex-row md:items-center md:py-0">
         <Link
           href="/"
-          className="mr-auto inline-flex items-center gap-3 font-bold uppercase tracking-wider md:text-xl"
+          className="mr-auto inline-flex items-center gap-3 font-bold uppercase tracking-wider md:text-sm"
         >
           <Image
             src={logoImg}
@@ -33,7 +33,7 @@ export default async function AppHeader() {
           <ModeToggle />
         </div>
         <AppNavigation>
-          <ul className="flex flex-col gap-8 text-lg font-bold tracking-wider md:flex-row md:text-sm">
+          <ul className="flex flex-col items-center gap-8 text-lg font-bold tracking-wider md:flex-row md:text-sm">
             <li>
               <NavLink href="/meals">Explore Meals</NavLink>
             </li>

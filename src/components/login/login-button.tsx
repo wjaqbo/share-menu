@@ -5,9 +5,5 @@ import Button from "@/components/ui/button";
 export default function LoginButton() {
   const { pending } = useFormStatus();
 
-  return (
-    <Button className="mt-4 w-full" aria-disabled={pending}>
-      Log In
-    </Button>
-  );
+  return <Button aria-disabled={pending}>Log In</Button>;
 }

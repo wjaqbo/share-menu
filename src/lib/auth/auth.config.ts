@@ -8,14 +8,12 @@ export const authConfig = {
     authorized({ auth, request: { nextUrl } }) {
       console.log("next-url", nextUrl);
       const isLoggedIn = !!auth?.user;
-      const isOnSharingPage = nextUrl.pathname.startsWith("/meals");
-      console.log("is on page", isOnSharingPage);
+      const isOnSharingPage = nextUrl.pathname.startsWith("/meals/share");
       if (isOnSharingPage) {
-        console.log("is on sharing page", isOnSharingPage);
         if (isLoggedIn) return true;
         return false;
       } else if (isLoggedIn) {
-        return Response.redirect(new URL("/meals", nextUrl));
+        // return Response.redirect(new URL("/meals/share", nextUrl));
       }
       return true;
     },

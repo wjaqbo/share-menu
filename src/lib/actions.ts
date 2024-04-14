@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { AuthError } from "next-auth";
 
-import { signIn } from "../../auth";
+import { signIn } from "./auth/auth";
 import { createMeal } from "./meals";
 
 function isValidText(text: string | null) {
@@ -12,7 +12,7 @@ function isValidText(text: string | null) {
 }
 
 export async function authenticate(
-  prevState: string | undefined,
+  _prevState: string | undefined,
   formData: FormData,
 ) {
   try {
