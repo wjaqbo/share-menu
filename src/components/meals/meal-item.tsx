@@ -17,7 +17,7 @@ export default function MealItem({
   creator: string;
 }) {
   return (
-    <article className="flex h-full flex-col justify-between overflow-hidden rounded border border-slate-100 bg-white shadow-md transition dark:border-slate-800 dark:bg-slate-900">
+    <article className="flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-md transition dark:border-slate-800 dark:bg-slate-900">
       <header>
         <div className="relative h-56 w-full">
           <Image
