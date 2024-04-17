@@ -10,6 +10,7 @@ import macncheeseImg from "@/assets/macncheese.jpg";
 import pizzaImg from "@/assets/pizza.jpg";
 import schnitzelImg from "@/assets/schnitzel.jpg";
 import tomatoSaladImg from "@/assets/tomato-salad.jpg";
+import { cn } from "@/lib/utils";
 
 const images = [
   { image: burgerImg, alt: "A delicious, juicy burger" },
@@ -29,18 +30,20 @@ export default function ImageSlideshow() {
     return () => clearInterval(interval);
   });
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-lg shadow-md">
+    <div className="relative h-full w-full rounded-3xl shadow-md">
       {images.map((image, index) => (
-        <Image
-          className={`${
-            index === currentImageIndex
-              ? "z-10 translate-x-0 rotate-0 scale-100 transform opacity-100"
-              : "translate-x-4 rotate-6 transform opacity-0"
-          } absolute left-0 top-0 h-full w-full object-cover transition duration-3000 ease-in-out`}
-          key={index}
-          src={image.image}
-          alt={image.alt}
-        />
+        <div key={index} className="overflow-hidden rounded-3xl">
+          <Image
+            className={cn(
+              index === currentImageIndex
+                ? "z-10 translate-y-0 scale-100 opacity-100"
+                : "translate-y-4 scale-95 opacity-0",
+              "absolute left-0 top-0 h-full w-full rounded-3xl object-cover duration-3000 ease-in-out",
+            )}
+            src={image.image}
+            alt={image.alt}
+          />
+        </div>
       ))}
     </div>
   );
