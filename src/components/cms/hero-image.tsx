@@ -1,7 +1,7 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React from "react";
 
-export default function HeroImage({ src }: { src: string | StaticImport }) {
+export default function HeroImage({ src }: { src: string | StaticImageData }) {
   return (
     <div className="relative h-96 w-full">
       <Image
