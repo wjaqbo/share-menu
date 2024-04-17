@@ -7,7 +7,7 @@ export const metadata = {
 export default function DrinksPage() {
   return (
     <>
-      <header className="mb-28 mt-40">
+      <header className="m-auto mb-28 mt-40 max-w-screen-lg px-4">
         <h1 className="mb-3 animate-slideUp text-5xl font-bold">
           Delicious drinks, created{" "}
           <span className="bg-gradient-to-tr from-amber-400 to-orange-600 bg-clip-text text-transparent">
@@ -22,7 +22,7 @@ export default function DrinksPage() {
           <Button href="/meals/share">Share your favorite recipe</Button>
         </div>
       </header>
-      <section>
+      <section className="mx-auto max-w-screen-lg px-4">
         <p>Drinks page is in progress...</p>
       </section>
     </>

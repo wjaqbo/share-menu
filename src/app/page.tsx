@@ -1,11 +1,15 @@
+import HeroImage from "@/components/cms/hero-image";
 import HomeAccordion from "@/components/home/home-accordion";
 import ImageSlideshow from "@/components/slideshow/image-slideshow";
 import Button from "@/components/ui/button";
 
+import heroImg from "@/assets/pizza-team.webp";
+import HeroText from "@/components/cms/hero-text";
+
 export default function HomePage() {
   return (
     <>
-      <header className="mx-auto my-20 items-center gap-12 md:flex">
+      <header className="mx-auto my-20 max-w-screen-lg items-center gap-12 px-4 md:flex">
         <div className="h-[25rem] md:w-[40rem]">
           <ImageSlideshow />
         </div>
@@ -25,7 +29,7 @@ export default function HomePage() {
         </div>
       </header>
 
-      <section className="mx-auto my-8 flex flex-col text-center text-lg font-light leading-relaxed">
+      <section className="mx-auto my-8 flex max-w-screen-lg flex-col px-4 text-center text-lg font-light leading-relaxed">
         <h2 className="my-8 text-3xl font-semibold">How it works</h2>
         <p className="mb-8">
           NextLevel Food is a platform for foodies to share their favorite
@@ -38,7 +42,9 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="mx-auto my-24 flex flex-col gap-4 rounded-3xl border bg-white px-8 pb-16 text-lg font-light leading-loose text-black dark:border-slate-800 dark:bg-slate-900 dark:text-white">
+      <HeroImage src={heroImg} />
+
+      <HeroText>
         <h2 className="my-8 text-center text-3xl font-semibold leading-normal">
           Why NextLevel Food?
         </h2>
@@ -66,8 +72,11 @@ export default function HomePage() {
             </p>
           </div>
         </div>
-      </section>
-      <section className="my-24">
+      </HeroText>
+
+      <HeroImage src={heroImg} />
+
+      <section className="mx-auto my-24 max-w-screen-lg px-4">
         <h2 className="my-8 text-center text-3xl font-semibold">FAQ</h2>
         <HomeAccordion />
       </section>
