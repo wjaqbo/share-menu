@@ -33,7 +33,7 @@ export default function RootLayout({
           <NavContextProvider>
             <AppHeader />
           </NavContextProvider>
-          <main className="mx-auto max-w-screen-lg p-4">{children}</main>
+          <main>{children}</main>
         </ThemeProvider>
       </body>
     </html>

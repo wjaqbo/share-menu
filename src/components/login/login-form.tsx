@@ -33,6 +33,7 @@ export function LoginForm() {
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
+    mode: "onChange",
     defaultValues: {
       email: "",
       password: "",
@@ -55,7 +56,11 @@ export function LoginForm() {
   return (
     <Form {...form}>
       <form
-        action={dispatch}
+        action={async (formData: FormData) => {
+          const valid = await form.trigger();
+          if (!valid) return;
+          return dispatch(formData);
+        }}
         // onSubmit={form.handleSubmit(onSubmit)}
         className="min-w-72 space-y-6"
       >

@@ -12,7 +12,7 @@ export const metadata = {
 export default function CommunityPage() {
   return (
     <>
-      <header className="mt-40 flex flex-col items-center gap-3 text-center">
+      <header className="mt-40 flex flex-col items-center gap-3 px-4 text-center">
         <h1 className="animate-slideUp text-5xl font-bold">
           One shared passion:{" "}
           <span className="bg-gradient-to-tr from-amber-400 to-orange-600 bg-clip-text text-transparent">
@@ -23,7 +23,7 @@ export default function CommunityPage() {
           Join our community and share your favorite recipes!
         </p>
       </header>
-      <section className="my-40">
+      <section className="mx-auto my-40 max-w-screen-lg px-4">
         <h2 className="text-center text-3xl font-bold">Community Perks</h2>
 
         <ul className="gap-16 px-14 text-center text-lg font-light md:flex md:px-0">

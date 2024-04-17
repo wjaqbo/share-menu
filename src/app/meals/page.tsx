@@ -17,7 +17,7 @@ async function Meals() {
 export default function MealsPage() {
   return (
     <>
-      <header className="mb-28 mt-40">
+      <header className="mx-auto mb-28 mt-40 max-w-screen-lg px-4">
         <h1 className="mb-3 animate-slideUp text-5xl  font-bold">
           Delicious meals, created{" "}
           <span className="bg-gradient-to-tr from-amber-400 to-orange-600 bg-clip-text text-transparent">
@@ -31,7 +31,7 @@ export default function MealsPage() {
           <Button href="/meals/share">Share your favorite recipe</Button>
         </div>
       </header>
-      <section>
+      <section className="mx-auto max-w-screen-lg px-4">
         <Suspense fallback={<LoadingMeals />}>
           <Meals />
         </Suspense>
