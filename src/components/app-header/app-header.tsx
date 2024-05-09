@@ -10,14 +10,19 @@ import Hamburger from "./hamburger";
 import { ModeToggle } from "./mode-toggle";
 import LogoutButton from "../login/logout-button";
 
-export default async function AppHeader() {
+export default async function AppHeader({
+  params,
+}: {
+  params: { lang: string; storeId: string };
+}) {
   const user = await auth();
+  const { lang, storeId } = params;
 
   return (
     <header className="fixed top-0 z-20 w-full border-b border-slate-300 bg-slate-200 bg-opacity-60 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900 md:sticky">
       <div className="mx-auto flex max-w-screen-lg flex-col justify-between  px-4 py-4 md:flex-row md:items-center md:py-0">
         <Link
-          href="/"
+          href={`/${lang}/${storeId}`}
           className="mr-auto inline-flex items-center gap-3 font-bold uppercase tracking-wider md:text-sm"
         >
           <Image

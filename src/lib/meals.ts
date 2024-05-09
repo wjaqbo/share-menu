@@ -4,7 +4,7 @@ import xss from "xss";
 import connectDB from "../../mongodb/connect";
 import { uploadImage } from "./cloudinary";
 import Meal from "../../mongodb/models/meal";
-import dummyMeals from "../../mongodb/dummy-meals";
+import dummyMeals from "../../mongodb/sample-data/dummy-meals";
 
 connectDB(process.env.MONGODB_URL!);
 

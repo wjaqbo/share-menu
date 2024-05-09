@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 import Link from "next/link";
+import MealItemLink from "./meal-item-link";
 
 export default function MealItem({
   slug,
@@ -35,13 +36,9 @@ export default function MealItem({
       </header>
       <div className="flex h-full flex-col justify-between text-sm dark:text-white">
         <p className="p-4">{summary}</p>
-        <div className="p-4 text-right">
-          <Link
-            href={`/meals/${slug}`}
-            className="text-md inline-block rounded-md border-orange-500 bg-orange-600 px-4 py-2 font-bold text-white"
-          >
-            View Recipe
-          </Link>
+        <div className="flex justify-between gap-4 p-4">
+          <MealItemLink slug={slug} />
+          <MealItemLink slug={slug} />
         </div>
       </div>
     </article>

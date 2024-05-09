@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 
 import { useNavContext } from "@/providers/nav-context-provider";
 
@@ -13,6 +13,7 @@ export default function NavLink({
   children: React.ReactNode;
 }) {
   const path = usePathname();
+  const { lang, storeId } = useParams();
   const { setIsOpen } = useNavContext();
 
   function handleClick() {
@@ -22,7 +23,7 @@ export default function NavLink({
   return (
     <Link
       onClick={handleClick}
-      href={href}
+      href={`/${lang}/${storeId}${href}`}
       className={`hover:text-amber-400 ${
         path.startsWith(href) ? "text-amber-400" : ""
       }`}

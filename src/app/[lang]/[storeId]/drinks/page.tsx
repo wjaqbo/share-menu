@@ -1,9 +1,11 @@
 import Button from "@/components/ui/button";
+import dynamic from "next/dynamic";
 
 export const metadata = {
   title: "Drinks",
   description: "Drinks Page",
 };
+
 export default function DrinksPage() {
   return (
     <>

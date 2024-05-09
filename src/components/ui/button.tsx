@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { ButtonHTMLAttributes, useRef } from "react";
 
 export default function Button({
@@ -19,6 +20,8 @@ export default function Button({
   const buttonRef = useRef<HTMLAnchorElement & HTMLButtonElement>(null);
   const rippleCircleRef = useRef<HTMLSpanElement>(null);
   const rippleRef = useRef<HTMLDivElement>(null);
+
+  const { lang, storeId } = useParams();
 
   function startAnimation(e: React.MouseEvent) {
     if (!buttonRef.current || !rippleCircleRef.current || !rippleRef.current) {
@@ -46,7 +49,7 @@ export default function Button({
       onMouseDown={startAnimation}
       onMouseDownCapture={stopAnimation}
       ref={buttonRef}
-      href={href}
+      href={`/${lang}/${storeId}${href}`}
       className={`${noBackground ? "bg-transparent text-orange-600" : "bg-orange-600 font-bold text-white"} relative inline-block w-full rounded-md border border-orange-500 px-4 py-4 text-center text-lg md:w-auto md:py-2`}
     >
       <div ref={rippleRef} className="c-ripple">

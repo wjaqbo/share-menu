@@ -38,3 +38,6 @@ next-env.d.ts
 
 #local images
 /public/images
+
+#IDE
+.vscode/

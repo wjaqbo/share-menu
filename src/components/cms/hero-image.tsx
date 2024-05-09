@@ -3,7 +3,7 @@ import React from "react";
 
 export default function HeroImage({ src }: { src: string | StaticImageData }) {
   return (
-    <div className="relative h-96 w-full">
+    <div className="relative mx-4 h-96  overflow-hidden rounded-3xl">
       <Image
         src={src}
         alt="hero image"

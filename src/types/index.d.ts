@@ -16,3 +16,11 @@ type User = {
   email: string;
   password: string;
 };
+
+type Ingridient = {
+  _id: string;
+  storeId: string;
+  lang: string;
+  name: string;
+  isActive: boolean;
+};
